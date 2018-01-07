@@ -20,6 +20,14 @@ html:-moz-full-screen-ancestor {
   background-color: #fff;
 }
 
+.reveal .slides {
+  text-align: left;
+}
+.reveal .slides section>* {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .reveal pre {
   width: 100%;
   box-shadow : none;
@@ -28,8 +36,8 @@ html:-moz-full-screen-ancestor {
 .reveal pre code {
   font-size: 1.2em;
   line-height: 1.2;
-  max-height: 50vh !important;
-  border-radius: 5px;
+  max-height: 100vh !important;
+  border-radius: 10px;
 }
 
 .reveal .slides section .code-presenting-annotation {
@@ -49,11 +57,11 @@ html:-moz-full-screen-ancestor {
 }
 
 .reveal a {
-    color: #e7ad52;
+    color: #5286e7;
 }
 
 .reveal a:hover {
-    color: #f3d7ac;
+    color: #5286e7;
 }
 
 .hljs {

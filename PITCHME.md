@@ -158,12 +158,14 @@ dependencies:
   - role: debops.secret
 ```
 @[12-15](You can use dependencies for roles)
+
 ---
 
 - use `handlers` |
 - use multiple files for tasks in roles |
 - Prefer templates than files |
-- Use `{{ ansible_managed }}` to mark auto-generated files as such, so nobody unknowingly edits them manually |
+- Use `{{ ansible_managed }}` to mark auto-generated files as such,
+  so nobody unknowingly edits them manually |
 
 ---
 
