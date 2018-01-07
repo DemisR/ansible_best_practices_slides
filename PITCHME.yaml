@@ -9,5 +9,5 @@ theme-override : assets/css/PITCHME.css
 highlight : atom-one-light
 logo : assets/image/logo.png
 transition : none
-published : true
-footnote : "GitPitch [ White ] Presentation Template"
+published : false
+footnote : "Demis Rizzotto - Exxoss"

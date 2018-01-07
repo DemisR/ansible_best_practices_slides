@@ -41,6 +41,9 @@ roles/
     monitoring/
     fooapp/
 ```
+@[1,9]
+@[11,14]
+[16,36]
 ---
 
 # Optimize your Ansible content for readability
