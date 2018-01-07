@@ -82,7 +82,7 @@ roles/
     enablerepo: telegraf
   notify: restart telegraf
 ```
-@[3-7](Now here is the same tasks using native YAML syntax)
+@[7-11](Now here is the same tasks using native YAML syntax)
 ---
 
 ## Variables
