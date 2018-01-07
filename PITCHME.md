@@ -90,11 +90,11 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 
 ---
 
-- Define **naming convention** for your role, vars , groups... |
-- **Variables** should be specified at exactly **one place** |
-(or two places if a variable has a reasonable, overridable default value), as close as possible to their usage |
-- Check variable precendence ( for roles basically use **default** dir ) |
-- Set a **default for every variable** |
+- Define **naming convention** for your role, vars , groups...
+- **Variables** should be specified at exactly **one place**
+(or two places if a variable has a reasonable, overridable default value), as close as possible to their usage
+- Check variable precendence ( for roles basically use **default** dir )
+- Set a **default for every variable**
 
 ---
 
@@ -161,11 +161,11 @@ dependencies:
 
 ---
 
-- use `handlers` |
-- use multiple files for tasks in roles |
-- Prefer templates than files |
+- use `handlers`
+- use multiple files for tasks in roles
+- Prefer templates than files
 - Use `{{ ansible_managed }}` to mark auto-generated files as such,
-  so nobody unknowingly edits them manually |
+  so nobody unknowingly edits them manually
 
 ---
 
