@@ -1,7 +1,9 @@
 # Ansible best practices
 
 ---
-### Directory Layout
+## Directory Layout
+
+---
 
 ```none
 inventories/
@@ -59,18 +61,17 @@ roles/
   with_items: '{{ springboot_app }}'
   become: yes
 ```
-
+@[1]
 ---
 ### Use Native YAML Syntax
-Here is an example of some tasks using the key=value shorthand:
+
 ```yaml
 - name: install telegraf
   apt:
     name: "telegraf-{{ telegraf_version }}" state=present update_cache=yes disable_gpg_check=yes enablerepo=telegraf
   notify: restart telegraf
-
 ```
-Now here is the same tasks using native YAML syntax:
+@[3](Here is an example of some tasks using the key=value shorthand)
 ```yaml
 - name: install telegraf
   apt: 
@@ -81,6 +82,7 @@ Now here is the same tasks using native YAML syntax:
     enablerepo: telegraf
   notify: restart telegraf
 ```
+@[3-7](Now here is the same tasks using native YAML syntax)
 ---
 
 ## Variables
