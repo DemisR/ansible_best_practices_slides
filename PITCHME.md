@@ -1,7 +1,7 @@
 # Ansible best practices
 
 ---
-# Directory Layout
+### Directory Layout
 
 ```none
 inventories/
@@ -41,13 +41,14 @@ roles/
     monitoring/
     fooapp/
 ```
-@[1,9]
-@[11,14]
-[16,36]
+@[1-9](Inventories)
+@[11-14](Playbooks)
+@[16-36](Roles)
 ---
 
-# Optimize your Ansible content for readability
+## Optimize your Ansible content for readability
 
+---
 *Name* Your Plays and Tasks
 ```yaml
 - name: "Create {{ springboot_app }} systemd service file"
@@ -60,7 +61,7 @@ roles/
 ```
 
 ---
-# Use Native YAML Syntax
+### Use Native YAML Syntax
 Here is an example of some tasks using the key=value shorthand:
 ```yaml
 - name: install telegraf
@@ -82,7 +83,9 @@ Now here is the same tasks using native YAML syntax:
 ```
 ---
 
-# Variables
+## Variables
+
+---
 Use prefixes and human meaningful names with variables
 
 ```yaml
@@ -125,7 +128,9 @@ wildfly_management_users:
 
 ---
 
-# Roles
+## Roles
+
+---
 Use galaxy command for create roles structure 
 
 ```shell
@@ -161,7 +166,8 @@ dependencies:
 
 ---
 
-# Tasks
+## Tasks
+---
 Idempotency done right.Avoid skipping items.
 
 Use modules before run commands
@@ -177,7 +183,9 @@ If no module does what you want, you can create your own
 
 ---
 
-# Tests
+## Tests
+
+---
 Test your roles
 Start with `--syntax-check`
 You can use `--check` option for test yours playbooks
@@ -188,7 +196,9 @@ ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ```
 
 ---
-# Tools
+## Tools
+
+---
 Ansible galaxy
 Some editor have syntax higthlight and linters
 Ex : **VScode**: (language-Ansible and YAML Support by Red Hat)
