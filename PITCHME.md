@@ -50,7 +50,8 @@ roles/
 ```yaml
 - name: install telegraf
   apt:
-    name: "telegraf-{{ telegraf_version }}" state=present update_cache=yes disable_gpg_check=yes enablerepo=telegraf
+    name: "telegraf-{{ telegraf_version }}" state=present 
+           update_cache=yes disable_gpg_check=yes enablerepo=telegraf
   notify: restart telegraf
 
 - name: install telegraf
@@ -89,11 +90,11 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 
 ---
 
-- Define **naming convention** for your role, vars , groups...
-- **Variables** should be specified at exactly **one place**
-(or two places if a variable has a reasonable, overridable default value), as close as possible to their usage
-- Check variable precendence ( for roles basically use **default** dir ).
-- Set a **default for every variable**
+- Define **naming convention** for your role, vars , groups... |
+- **Variables** should be specified at exactly **one place** |
+(or two places if a variable has a reasonable, overridable default value), as close as possible to their usage |
+- Check variable precendence ( for roles basically use **default** dir ) |
+- Set a **default for every variable** |
 
 ---
 
@@ -159,10 +160,10 @@ dependencies:
 @[12-15](You can use dependencies for roles)
 ---
 
-- use `handlers`  
-- use multiple files for tasks in roles
-- Prefer templates than files
-- Use `{{ ansible_managed }}` to mark auto-generated files as such, so nobody unknowingly edits them manually
+- use `handlers` |
+- use multiple files for tasks in roles |
+- Prefer templates than files |
+- Use `{{ ansible_managed }}` to mark auto-generated files as such, so nobody unknowingly edits them manually |
 
 ---
 
@@ -170,8 +171,8 @@ dependencies:
 
 ---
 
-Idempotency done right.
-Avoid skipping items.
+### Idempotency done right.
+### Avoid skipping items.
 
 ---
 **Use modules** before run commands
@@ -187,7 +188,7 @@ if no choice use `changed_when`
   changed_when: "'Execute a drush command' not in drush_result.stdout"
   become: no
 ```
-@[4]
+@[2-4]
 
 ---
 
@@ -195,7 +196,7 @@ if no choice use `changed_when`
 
 ---
 
-**Test your roles**
+### Test your roles
 - `--syntax-check`
 - `--check` simulate yours playbooks execution (but with some limitations)
 - `--diff` showing differences in files 
@@ -205,6 +206,7 @@ ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ```
 
 ---
+
 ## Tools
 
 ---
