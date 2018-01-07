@@ -63,8 +63,8 @@ roles/
     enablerepo: telegraf
   notify: restart telegraf
 ```
-@[3](Here is an example of some tasks using the key=value shorthand)
-@[8-12](Now here is the same tasks using native YAML syntax)
+@[3-4](Here is an example of some tasks using the key=value shorthand)
+@[9-13](Now here is the same tasks using native YAML syntax)
 ---
 
 ## Variables
