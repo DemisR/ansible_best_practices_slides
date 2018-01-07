@@ -92,7 +92,7 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 
 - Define **naming convention** for your role, vars , groups...
 - **Variables** should be specified at exactly **one place**
-(or two places if a variable has a reasonable, overridable default value), as close as possible to their usage
+_(or two places if a variable has a reasonable, overridable default value)_, as close as possible to their usage
 - Check variable precendence ( for roles basically use **default** dir )
 - Set a **default for every variable**
 
