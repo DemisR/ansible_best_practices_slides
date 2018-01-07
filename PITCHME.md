@@ -70,9 +70,7 @@ roles/
   apt:
     name: "telegraf-{{ telegraf_version }}" state=present update_cache=yes disable_gpg_check=yes enablerepo=telegraf
   notify: restart telegraf
-```
-@[3](Here is an example of some tasks using the key=value shorthand)
-```yaml
+
 - name: install telegraf
   apt: 
     name: "telegraf-{{ telegraf_version }}"
@@ -82,7 +80,8 @@ roles/
     enablerepo: telegraf
   notify: restart telegraf
 ```
-@[7-11](Now here is the same tasks using native YAML syntax)
+@[3](Here is an example of some tasks using the key=value shorthand)
+@[8-12](Now here is the same tasks using native YAML syntax)
 ---
 
 ## Variables
@@ -108,18 +107,15 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 
 ---
 
-# ...
-
-- Define naming convention for your role, vars , groups...
-- Variables should be specified at exactly one place
+- Define **naming convention** for your role, vars , groups...
+- **Variables** should be specified at exactly **one place**
 (or two places if a variable has a reasonable, overridable default value), as close as possible to their usage
 - Check variable precendence ( for roles basically use **default** dir ).
-- Set a default for every variable
+- Set a **default for every variable**
 
 ---
 
-Lookup plugins allow Ansible to access data from outside sources
-
+#### Lookup plugins allow Ansible to access data from outside sources
 Example for password generation
 ```yaml
 wildfly_management_users:
@@ -139,6 +135,7 @@ Use galaxy command for create roles structure
 ansible-galaxy init rolename
 ```
 
+---
 
 Add **meta** info and use **roles dependencies**
 ```yaml
@@ -158,9 +155,9 @@ dependencies:
   - { role: lampiris-apt-repo }
   - role: debops.secret
 ```
+@[12-15](You can use dependencies for roles)
 ---
 
-# ...
 - use `handlers`  
 - use multiple files for tasks in roles
 - Prefer templates than files
@@ -169,10 +166,18 @@ dependencies:
 ---
 
 ## Tasks
----
-Idempotency done right.Avoid skipping items.
 
-Use modules before run commands
+---
+
+Idempotency done right.
+Avoid skipping items.
+
+---
+**Use modules** before run commands
+If no module does what you want, you can create your own
+
+---
+
 if no choice use `changed_when`
 ```yaml
 - name: Run drush to finish setting it up
@@ -181,17 +186,18 @@ if no choice use `changed_when`
   changed_when: "'Execute a drush command' not in drush_result.stdout"
   become: no
 ```
-If no module does what you want, you can create your own
+@[4]
 
 ---
 
 ## Tests
 
 ---
-Test your roles
-Start with `--syntax-check`
-You can use `--check` option for test yours playbooks
-And `--diff` showing differences in files 
+
+**Test your roles**
+- `--syntax-check`
+- `--check` simulate yours playbooks execution (but with some limitations)
+- `--diff` showing differences in files 
 
 ```shell
 ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
@@ -201,13 +207,17 @@ ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ## Tools
 
 ---
-Ansible galaxy
-Some editor have syntax higthlight and linters
-Ex : **VScode**: (language-Ansible and YAML Support by Red Hat)
+Search roles in **Ansible galaxy**
+Some editor have **syntax higthlight** and **linters**.
+
+Personally I use  **VScode** with
+    - language-Ansible
+    - YAML Support by Red Hat)
 
 --- 
+
 `ansible-lint` checks playbooks for practices and behaviour that could potentially be improved
-Ex:
+
 ```None
 [ANSIBLE0013] Use shell only when shell functionality is required
 /ansible/roles/common/tasks/admins.yml:34
@@ -218,19 +228,25 @@ Task/Handler: Check if infrastructuremanagers user exists
 Task/Handler: stat __file__=/ansible/roles/common/tasks/exim4.yml __line__=2 path=/etc/postfix/main.cf
 ```
 ---
+
 `ansible-doc` is very useful for finding the syntax of a module without having to look it up online
+
 ```shell
 ansible-doc mysql_user
 ```
 ---
+
 Use verstion control (**git**) 
-(.gitignore : `*.retry`)
+_(.gitignore : `*.retry`)_
+
 and also for test syntax before merge code
 
+---
 
 # Inventories
 Use directoriers for `host_vars` and `group_vars` 
 
+---
 
 # Execution
 Use tags only for limiting to tasks for speed reasons, as in "only update config files". 
