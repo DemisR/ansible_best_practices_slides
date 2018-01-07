@@ -33,7 +33,7 @@ roles/
 ## Optimize your Ansible content for readability
 
 ---
-*Name* Your Plays and Tasks
+**Name** Your Plays and Tasks
 ```yaml
 - name: "Create {{ springboot_app }} systemd service file"
   template:
@@ -161,10 +161,10 @@ dependencies:
 
 ---
 
-- use `handlers`
+- use **handlers**
 - use multiple files for tasks in roles
 - Prefer templates than files
-- Use `{{ ansible_managed }}` to mark auto-generated files as such,
+- Use **{{ ansible_managed }}** to mark auto-generated files as such,
   so nobody unknowingly edits them manually
 
 ---
