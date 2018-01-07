@@ -1,5 +1,5 @@
 # Ansible best practices
-
+![ansible](assets/Ansible_logo.png)
 ---
 ## Directory Layout
 
@@ -178,6 +178,7 @@ dependencies:
 
 ---
 **Use modules** before run commands
+
 If no module does what you want, you can create your own
 
 ---
@@ -206,6 +207,12 @@ if no choice use `changed_when`
 ```shell
 ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ```
+
+---
+
+### Molecule
+automate development and testing of Ansible roles.
+It integrates with **Docker**, **Vagrant**, and OpenStack to run roles in a virtualized environment and works with popular infra testing tools like ServerSpec and **TestInfra**. 
 
 ---
 
