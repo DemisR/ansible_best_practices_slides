@@ -29,7 +29,7 @@ html:-moz-full-screen-ancestor {
   font-size: 1.2em;
   line-height: 1.2;
   max-height: 50vh !important;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .reveal .slides section .code-presenting-annotation {

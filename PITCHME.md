@@ -22,30 +22,12 @@ playbooks/
     dbservers.yml
 
 roles/
-    common/               # this hierarchy represents a "role"
-        tasks/            #
-            main.yml      #  <-- tasks file can include smaller files if warranted
-        handlers/         #
-            main.yml      #  <-- handlers file
-        templates/        #  <-- files for use with the template resource
-            ntp.conf.j2   #  <------- templates end in .j2
-        files/            #
-            bar.txt       #  <-- files for use with the copy resource
-            foo.sh        #  <-- script files for use with the script resource
-        vars/             #
-            main.yml      #  <-- variables associated with this role
-        defaults/         #
-            main.yml      #  <-- default lower priority variables for this role
-        meta/             #
-            main.yml      #  <-- role dependencies
-
-    webtier/              # same kind of structure as "common" was above, done for the webtier role
     monitoring/
     fooapp/
 ```
 @[1-9](Inventories)
 @[11-14](Playbooks)
-@[16-36](Roles)
+@[16-18](Roles)
 ---
 
 ## Optimize your Ansible content for readability
@@ -127,7 +109,6 @@ wildfly_management_users:
 ---
 
 ## Roles
-
 ---
 Use galaxy command for create roles structure 
 
@@ -135,6 +116,26 @@ Use galaxy command for create roles structure
 ansible-galaxy init rolename
 ```
 
+---
+### Directory layout
+```none
+    common/               # this hierarchy represents a "role"
+        tasks/            #
+            main.yml      #  <-- tasks file can include smaller files if warranted
+        handlers/         #
+            main.yml      #  <-- handlers file
+        templates/        #  <-- files for use with the template resource
+            ntp.conf.j2   #  <------- templates end in .j2
+        files/            #
+            bar.txt       #  <-- files for use with the copy resource
+            foo.sh        #  <-- script files for use with the script resource
+        vars/             #
+            main.yml      #  <-- variables associated with this role
+        defaults/         #
+            main.yml      #  <-- default lower priority variables for this role
+        meta/             #
+            main.yml      #  <-- role dependencies
+```
 ---
 
 Add **meta** info and use **roles dependencies**
