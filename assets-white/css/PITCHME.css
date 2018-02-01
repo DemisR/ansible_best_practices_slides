@@ -21,7 +21,7 @@ html:-moz-full-screen-ancestor {
 }
 
 /* custom */
-.reveal {
+.reveal code {
   color: #fff;
 }
 /* ----- */
