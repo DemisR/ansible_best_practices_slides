@@ -105,7 +105,6 @@ You can use jinja2 builtin filters in tasks or additionals ansible filters
 - valid ip `{{ myvar | ipv4 }}` or `{{ '192.0.2.1/24' | ipaddr('address') }}`
 - upper, lower, parse_cli, password_hash, regex_search, quote, join  ...and more
 
-
 +++
 
 #### Lookup plugins 
@@ -120,8 +119,17 @@ wildfly_management_users:
 
 ```
 
-_HashiCorp Vault lookup plugin_
-_passwordstore since 2.3_
+*_HashiCorp Vault lookup plugin_
+
+*_Passwordstore since 2.3_
+
++++
+
+List all facts for one host  : 
+````shell
+ansible -m setup hostname
+```
+
 ---
 
 ## Roles
@@ -297,6 +305,9 @@ Create encrypted variable
 ```bash 
 $ ansible-vault encrypt_string --vault-id prod@prod-password 'supersecret' --name 'password'
 ```
+
++++
+
 add in `vars.yml`
 ```yaml
 servername: server1
@@ -309,6 +320,9 @@ password: !vault |
           6436616431383833650a326562343162313764353464333235363234623064666539383338326232
           3235
 ```
+
++++
+
 Test
 ```bash
 $ ansible-playbook --vault-id prod@prod-password debug.yml
@@ -317,6 +331,7 @@ TASK [print standard variable] > "msg": "username : foo.bar"
 ```
 
 _encrypt string available since Ansible 2.3. vault-id since 2.4_
+
 _you can't edit or decrypt file with vault cli for the moment_
 ---
 
@@ -337,16 +352,5 @@ _you can't edit or decrypt file with vault cli for the moment_
 ---
 
 # Any questions?
-
----
-
-## Bonus
-
-List all facts for one host  : `ansible -m setup hostname`
-
-+++
-
-**registered** variables used to store the results of a task in a playbook.
-
 https://gitpitch.com/DemisR/ansible_best_practices_slides
----
+
