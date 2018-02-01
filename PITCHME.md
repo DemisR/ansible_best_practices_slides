@@ -258,7 +258,8 @@ Personally I use  **VScode** with
 
 +++
 
-`ansible-lint` checks playbooks for practices and behaviour that could potentially be improved
+### ansible-lint
+checks playbooks for practices and behaviour that could potentially be improved
 
 ```None
 [ANSIBLE0013] Use shell only when shell functionality is required
@@ -271,7 +272,8 @@ Task/Handler: stat __file__=/ansible/roles/common/tasks/exim4.yml __line__=2 pat
 ```
 +++
 
-`ansible-doc` is very useful for finding the syntax of a module without having to look it up online
+### ansible-doc
+is very useful for finding the syntax of a module without having to look it up online
 
 ```shell
 ansible-doc mysql_user
@@ -284,9 +286,10 @@ _(.gitignore : `*.retry`)_
 and also for test syntax before merge code
 
 ---
-## ansible-vault
+### ansible-vault
 Feature of ansible that allows keeping sensitive data such as passwords or keys in encrypted files.
-```
+
+```shell
 $ ansible-vault create foo.yml
 $ ansible-vault edit foo.yml
 
@@ -297,7 +300,7 @@ $ ansible-vault view foo.yml bar.yml baz.yml
 The file is complete encrypted in AES256
 +++
 
-## ecrypted variables
+#### ecrypted variables
 
 Use **encrypt_string** to create encrypted variables to **embed in yaml**
 
@@ -331,8 +334,8 @@ TASK [print secure variable] >  "msg": "prod_password : supersecret"
 TASK [print standard variable] > "msg": "username : foo.bar"
 ```
 
->_encrypt string available since Ansible 2.3. vault-id since 2.4_
->_you can't edit or decrypt file with vault cli for the moment_
+> _encrypt string available since Ansible 2.3. vault-id since 2.4_
+> _you can't edit or decrypt file with vault cli for the moment_
 ---
 
 ## Inventories
