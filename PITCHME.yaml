@@ -10,15 +10,10 @@
 #highlight : atom-one-light
 #logo : assets-white/image/logo.png
 
-#theme : black
-#theme-override : assets/css/PITCHME.css
-#highlight : atom-one-dark
-#logo : assets/image/logo.png
-
-highlight : ir-black
-theme : moon
-logo : assets/image/logo.png
+theme : black
 theme-override : assets/css/PITCHME.css
+highlight : atom-one-dark
+logo : assets/image/logo.png
 
 transition : none
 published : false
