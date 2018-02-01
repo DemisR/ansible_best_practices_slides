@@ -7,7 +7,7 @@
 
 theme : simple
 theme-override : assets-white/css/PITCHME.css
-highlight : atom-one-light
+highlight : atom-one-dark
 logo : assets-white/image/logo.png
 
 #theme : black
