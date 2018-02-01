@@ -6,10 +6,8 @@
  */
 
 body {
-  /* background: #000;
-  background-color: #000; */
-  background: #fff;
-  background-color: #fff;
+  background: #000;
+  background-color: #000;
 }
 
 
@@ -33,6 +31,7 @@ html:-moz-full-screen-ancestor {
   line-height: 1.2;
   max-height: 100vh !important;
   border-radius: 10px;
+  background: #222;
 }
 
 .reveal .slides section .code-presenting-annotation {
