@@ -28,7 +28,7 @@ html:-moz-full-screen-ancestor {
 .reveal pre code {
   font-size: 1.2em;
   line-height: 1.2;
-  max-height: 50vh !important;
+  max-height: 60vh !important;
   border-radius: 10px;
 }
 
@@ -46,8 +46,8 @@ html:-moz-full-screen-ancestor {
   padding: 4px 15px;
   opacity: 0.75 !important;
   border-radius: 15px;
+  display: none;
 }
-
 .reveal div.left {
     float: left;
     z-index: -10;
