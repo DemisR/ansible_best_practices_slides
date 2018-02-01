@@ -1,7 +1,6 @@
----?image=assets/image/Ansible_logo.png&size=auto 90%
-##
-##
-## Best practices
+## Ansible Best practices
++++
+[ansible](assets/image/Ansible_logo.png)
 ---
 ## Directory Layout
 
