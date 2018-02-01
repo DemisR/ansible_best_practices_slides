@@ -1,5 +1,5 @@
 # Ansible best practices
-![ansible](assets/image/Ansible_logo.png)
+---?image=assets/image/Ansible_logo.png&size=auto 90%
 ---
 ## Directory Layout
 
@@ -336,4 +336,6 @@ Use `when:` in yout task
 `with_items` example
 
 registered variables used to store the results of a task in a playbook.
+
+https://gitpitch.com/DemisR/ansible_best_practices_slides
 ---
