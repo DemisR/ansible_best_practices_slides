@@ -306,7 +306,7 @@ Use **encrypt_string** to create encrypted variables to **embed in yaml**
 
 Example:
 Create encrypted variable
-```bash 
+```shell 
 $ ansible-vault encrypt_string --vault-id prod@prod-password 'supersecret' --name 'password'
 ```
 
@@ -328,7 +328,7 @@ password: !vault |
 +++
 
 Test
-```bash
+```shell
 $ ansible-playbook --vault-id prod@prod-password debug.yml
 TASK [print secure variable] >  "msg": "prod_password : supersecret"
 TASK [print standard variable] > "msg": "username : foo.bar"
