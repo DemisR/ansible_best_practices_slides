@@ -6,9 +6,12 @@
  */
 
 body {
-  background: #000;
-  background-color: #000;
+  /* background: #000;
+  background-color: #000; */
+  background: #fff;
+  background-color: #fff;
 }
+
 
 html:-webkit-full-screen-ancestor {
   background: #000;
