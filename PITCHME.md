@@ -1,6 +1,4 @@
-## Ansible Best practices
-+++
-[ansible](assets/image/Ansible_logo.png)
+## Ansible Best practices ![ansible logo](assets/image/Ansible_logo.png)
 ---
 ## Directory Layout
 
