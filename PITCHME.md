@@ -98,12 +98,12 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 +++
 
 You can use jinja2 builtin filters in tasks or additionals ansible filters
-```yaml
-- default : {{ item.domain|default("foo.be") }}
-- mandatory : {{ variable | mandatory }}
-- omit :  mode="{{item.mode|default(omit)}}"
-- valid ip : {{ myvar | ipv4 }} or {{ '192.0.2.1/24' | ipaddr('address') }}
-- upper, lower, parse_cli, password_hash, regex_search, quote, join  ...and more
+```s
+default > "{{ item.domain|default('foo.be') }}"
+mandatory > "{{ variable | mandatory }}"
+omit >  mode:"{{item.mode|default(omit)}}"
+valid ip > "{{ myvar | ipv4 }}" or "{{ '192.0.2.1/24' | ipaddr('address') }}"
+upper, lower, parse_cli, password_hash, regex_search, quote, join  ...and more
 ```
 +++
 
