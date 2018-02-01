@@ -109,6 +109,7 @@ You can use jinja2 builtin filters in tasks or additionals ansible filters:
 
 #### Lookup plugins 
 Allow Ansible to access data from outside sources
+(password files, passwordstore, ini, csv, dns, redis,...)
 
 Example for password generation
 ```yaml
@@ -117,8 +118,9 @@ wildfly_management_users:
     password: '{{ lookup("password", secret + "/wildfly/" + ansible_fqdn + "/management_users/admin length=20 " + "chars=ascii_letters,digits,-_.") }}'
 
 ```
-_A good solution for HashiCorp Vault lookup plugin_
 
+_HashiCorp Vault lookup plugin_
+_passwordstore since 2.3_
 ---
 
 ## Roles
