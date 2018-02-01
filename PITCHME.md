@@ -32,7 +32,7 @@ roles/
 
 ## Optimize your Ansible content for readability
 
----
++++
 **Name** Your Plays and Tasks
 ```yaml
 - name: "Create {{ springboot_app }} systemd service file"
@@ -44,7 +44,7 @@ roles/
   become: yes
 ```
 @[1]
----
++++
 ### Use Native YAML Syntax
 
 ```yaml
@@ -69,7 +69,7 @@ roles/
 
 ## Variables
 
----
++++
 Use prefixes and human meaningful names with variables
 
 ```yaml
@@ -79,7 +79,7 @@ tomcat_port: 8080
 ```
 Role variables should be **prefixed with the role name**
 
----
++++
 
 You can compose variables
 ```yaml
@@ -88,7 +88,7 @@ wildfly_home_path: "/usr/local/wildfly"
 wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 ```
 
----
++++
 
 - Define **naming convention** for your role, vars , groups...
 - **Variables** should be specified at exactly **one place**
@@ -96,7 +96,7 @@ _(or two places if a variable has a reasonable, overridable default value)_, as 
 - Check variable precendence ( for roles basically use **default** dir )
 - Set a **default for every variable**
 
----
++++
 
 #### Lookup plugins allow Ansible to access data from outside sources
 Example for password generation
@@ -111,19 +111,19 @@ wildfly_management_users:
 
 ## Roles
 
----
++++
 One role, one goal
 
 Avoid tasks within a role that are not related to each others
 
----
++++
 Use galaxy command for create roles structure 
 
 ```shell
 ansible-galaxy init rolename
 ```
 
----
++++
 ### Directory layout
 ```none
     common/               # this hierarchy represents a "role"
@@ -143,7 +143,7 @@ ansible-galaxy init rolename
         meta/             #
             main.yml      #  <-- role dependencies
 ```
----
++++
 
 Add **meta** info and use **roles dependencies**
 ```yaml
@@ -165,7 +165,7 @@ dependencies:
 ```
 @[12-15](You can use dependencies for roles)
 
----
++++
 
 - use **handlers**
 - use multiple files for tasks in roles
@@ -177,17 +177,17 @@ dependencies:
 
 ## Tasks
 
----
++++
 
 ### Idempotency done right.
 ### Avoid skipping items.
 
----
++++
 **Use modules** before run commands
 
 If no module does what you want, you can create your own
 
----
++++
 
 if no choice use `changed_when`
 ```yaml
@@ -203,7 +203,7 @@ if no choice use `changed_when`
 
 ## Tests
 
----
++++
 
 ### Test your roles
 - `--syntax-check`
@@ -214,7 +214,7 @@ if no choice use `changed_when`
 ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ```
 
----
++++
 
 ### Molecule
 automate development and testing of Ansible roles.
@@ -224,7 +224,7 @@ It integrates with **Docker**, **Vagrant**, and OpenStack to run roles in a virt
 
 ## Tools
 
----
++++
 Search roles in **Ansible galaxy**
 Some editor have **syntax higthlight** and **linters**.
 
@@ -232,7 +232,7 @@ Personally I use  **VScode** with
     - language-Ansible
     - YAML Support by Red Hat)
 
---- 
++++
 
 `ansible-lint` checks playbooks for practices and behaviour that could potentially be improved
 
@@ -245,14 +245,14 @@ Task/Handler: Check if infrastructuremanagers user exists
 /ansible/roles/common/tasks/exim4.yml:2
 Task/Handler: stat __file__=/ansible/roles/common/tasks/exim4.yml __line__=2 path=/etc/postfix/main.cf
 ```
----
++++
 
 `ansible-doc` is very useful for finding the syntax of a module without having to look it up online
 
 ```shell
 ansible-doc mysql_user
 ```
----
++++
 
 Use verstion control (**git**) 
 _(.gitignore : `*.retry`)_
@@ -271,7 +271,7 @@ ansible-vault decrypt foo.yml bar.yml baz.yml # remove encrypt
 ansible-vault view foo.yml bar.yml baz.yml
 ```
 The file is complete encrypted in AES256
----
++++
 
 ## ecrypted variables
 
@@ -329,7 +329,7 @@ _you can't edit or decrypt file with vault cli for the moment_
 
 List all facts for one host  : `ansible -m setup hostname`
 
----
++++
 
 Use `when:` in yout task
 
