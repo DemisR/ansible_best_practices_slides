@@ -20,12 +20,6 @@ html:-moz-full-screen-ancestor {
   background-color: #fff;
 }
 
-/* custom */
-.reveal code {
-  color: #fff;
-}
-/* ----- */
-
 .reveal pre {
   width: 100%;
   box-shadow : none;
@@ -37,6 +31,7 @@ html:-moz-full-screen-ancestor {
   max-height: 100vh !important;
   border-radius: 10px;
   background: #222; /* custom */
+  color: #fff; /* custom */
 }
 
 .reveal .slides section .code-presenting-annotation {

@@ -98,11 +98,12 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 +++
 
 You can use jinja2 builtin filters in tasks or additionals ansible filters
-```s
-default > "{{ item.domain|default('foo.be') }}"
-mandatory > "{{ variable | mandatory }}"
-omit >  mode:"{{item.mode|default(omit)}}"
-valid ip > "{{ myvar | ipv4 }}" or "{{ '192.0.2.1/24' | ipaddr('address') }}"
+```yaml
+{{ item.domain|default('foo.be') }}
+{{ variable | mandatory }}
+mode: {{item.mode|default(omit)}}
+{{ myvar | ipv4 }}  or  {{ '192.0.2.1/24' | ipaddr('address') }}
+
 upper, lower, parse_cli, password_hash, regex_search, quote, join  ...and more
 ```
 +++
@@ -119,8 +120,8 @@ wildfly_management_users:
 
 ```
 
->_HashiCorp Vault lookup plugin_
->_Passwordstore since 2.3_
+> _HashiCorp Vault lookup plugin_
+> _Passwordstore since 2.3_
 
 +++
 
@@ -234,7 +235,7 @@ if no choice use `changed_when`
 - `--diff` showing differences in files 
 
 ```shell
-ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
+$ ansible-playbook foo.yml -i staging --check --diff --limit foo.example.com
 ```
 
 +++
@@ -286,12 +287,12 @@ and also for test syntax before merge code
 ## ansible-vault
 Feature of ansible that allows keeping sensitive data such as passwords or keys in encrypted files.
 ```
-ansible-vault create foo.yml
-ansible-vault edit foo.yml
+$ ansible-vault create foo.yml
+$ ansible-vault edit foo.yml
 
-ansible-vault encrypt foo.yml bar.yml baz.yml # encrypt existing file
-ansible-vault decrypt foo.yml bar.yml baz.yml # remove encrypt
-ansible-vault view foo.yml bar.yml baz.yml
+$ ansible-vault encrypt foo.yml bar.yml baz.yml # encrypt existing file
+$ ansible-vault decrypt foo.yml bar.yml baz.yml # remove encrypt
+$ ansible-vault view foo.yml bar.yml baz.yml
 ```
 The file is complete encrypted in AES256
 +++
