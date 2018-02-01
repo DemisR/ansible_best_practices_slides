@@ -30,6 +30,10 @@ html:-moz-full-screen-ancestor {
   box-shadow : none;
 }
 
+.reveal .slides {		
+  padding: 2em;		
+}
+
 .reveal pre code {
   font-size: 1.2em;
   line-height: 1.2;
