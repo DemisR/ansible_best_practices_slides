@@ -6,7 +6,7 @@
 #
 theme : black
 #theme-override : assets/css/PITCHME.css
-highlight : atom-one-light
+#highlight : atom-one-light
 logo : assets/image/logo.png
 transition : none
 published : false
