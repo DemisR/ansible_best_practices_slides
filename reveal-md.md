@@ -143,7 +143,7 @@ Avoid tasks within a role that are not related to each others
 Use galaxy command for create roles structure 
 
 ```shell
-ansible-galaxy init rolename
+$ ansible-galaxy init rolename
 ```
 
 ----

@@ -119,15 +119,15 @@ wildfly_management_users:
 
 ```
 
-*_HashiCorp Vault lookup plugin_
-
-*_Passwordstore since 2.3_
+>_HashiCorp Vault lookup plugin_
+>_Passwordstore since 2.3_
 
 +++
 
 List all facts for one host  : 
-````shell
-ansible -m setup hostname
+
+```shell
+$ ansible -m setup hostname
 ```
 
 ---
@@ -143,7 +143,7 @@ Avoid tasks within a role that are not related to each others
 Use galaxy command for create roles structure 
 
 ```shell
-ansible-galaxy init rolename
+$ ansible-galaxy init rolename
 ```
 
 +++
@@ -330,9 +330,8 @@ TASK [print secure variable] >  "msg": "prod_password : supersecret"
 TASK [print standard variable] > "msg": "username : foo.bar"
 ```
 
-_encrypt string available since Ansible 2.3. vault-id since 2.4_
-
-_you can't edit or decrypt file with vault cli for the moment_
+>_encrypt string available since Ansible 2.3. vault-id since 2.4_
+>_you can't edit or decrypt file with vault cli for the moment_
 ---
 
 ## Inventories
