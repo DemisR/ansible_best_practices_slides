@@ -3,7 +3,7 @@
 ---
 ## Directory Layout
 
----
++++
 
 ```none
 inventories/
