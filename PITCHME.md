@@ -90,15 +90,26 @@ wildfly_conf_path: "{{ wildfly_home_path }}/{{ wildfly_mode }}/configuration"
 
 +++
 
-- Define **naming convention** for your role, vars , groups...
-- **Variables** should be specified at exactly **one place**
-_(or two places if a variable has a reasonable, overridable default value)_, as close as possible to their usage
+- Define **naming convention** for your roles, vars , groups...
+- Avoid indirections like includes or **vars_files**
 - Check variable precendence ( for roles basically use **default** dir )
-- Set a **default for every variable**
+- Define a **default value** for each variable 
 
 +++
 
-#### Lookup plugins allow Ansible to access data from outside sources
+You can use jinja2 builtin filters in tasks or additionals ansible filters:  
+- default `{{ item.domain|default("foo.be") }}`
+- mandatory `{{ variable | mandatory }}`
+- omit `mode={{item.mode|default(omit)}}`
+- valid ip `{{ myvar | ipv4 }}` or `{{ '192.0.2.1/24' | ipaddr('address') }}`
+- upper, lower, parse_cli, password_hash, regex_search, quote, join  ...and more
+
+
++++
+
+#### Lookup plugins 
+Allow Ansible to access data from outside sources
+
 Example for password generation
 ```yaml
 wildfly_management_users:
@@ -106,6 +117,7 @@ wildfly_management_users:
     password: '{{ lookup("password", secret + "/wildfly/" + ansible_fqdn + "/management_users/admin length=20 " + "chars=ascii_letters,digits,-_.") }}'
 
 ```
+_A good solution for HashiCorp Vault lookup plugin_
 
 ---
 
@@ -331,11 +343,7 @@ List all facts for one host  : `ansible -m setup hostname`
 
 +++
 
-Use `when:` in yout task
-
-`with_items` example
-
-registered variables used to store the results of a task in a playbook.
+**registered** variables used to store the results of a task in a playbook.
 
 https://gitpitch.com/DemisR/ansible_best_practices_slides
 ---
