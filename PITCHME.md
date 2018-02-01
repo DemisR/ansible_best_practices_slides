@@ -1,5 +1,5 @@
 # Ansible best practices
-![ansible](assets/Ansible_logo.png)
+![ansible](assets/image/Ansible_logo.png)
 ---
 ## Directory Layout
 
@@ -110,6 +110,12 @@ wildfly_management_users:
 ---
 
 ## Roles
+
+---
+One role, one goal
+
+Avoid tasks within a role that are not related to each others
+
 ---
 Use galaxy command for create roles structure 
 
@@ -254,33 +260,80 @@ _(.gitignore : `*.retry`)_
 and also for test syntax before merge code
 
 ---
+## ansible-vault
+Feature of ansible that allows keeping sensitive data such as passwords or keys in encrypted files.
+```
+ansible-vault create foo.yml
+ansible-vault edit foo.yml
 
-# Inventories
-Use directoriers for `host_vars` and `group_vars` 
+ansible-vault encrypt foo.yml bar.yml baz.yml # encrypt existing file
+ansible-vault decrypt foo.yml bar.yml baz.yml # remove encrypt
+ansible-vault view foo.yml bar.yml baz.yml
+```
+The file is complete encrypted in AES256
+---
+
+## ecrypted variables
+
+Use **encrypt_string** to create encrypted variables to **embed in yaml**
+
+Example:
+Create encrypted variable
+```bash 
+$ ansible-vault encrypt_string --vault-id prod@prod-password 'supersecret' --name 'password'
+```
+add in `vars.yml`
+```yaml
+servername: server1
+username: 'foo.bar'
+password: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;prod
+          36613430616336633961363865396264373262646165323063303830346566346266656262656264
+          6566663639316564613766343234353432613738303833660a636433353630623265386564313635
+          62373163303666643435366465633863643261336566613262653939323062383464336333653866
+          6436616431383833650a326562343162313764353464333235363234623064666539383338326232
+          3235
+```
+Test
+```bash
+$ ansible-playbook --vault-id prod@prod-password debug.yml
+TASK [print secure variable] >  "msg": "prod_password : supersecret"
+TASK [print standard variable] > "msg": "username : foo.bar"
+```
+
+_encrypt string available since Ansible 2.3. vault-id since 2.4_
+_you can't edit or decrypt file with vault cli for the moment_
+---
+
+## Inventories
+
+- Leverage dynamic inventory
+- Use directoriers for `host_vars` and `group_vars` 
 
 ---
 
-# Execution
-Use tags only for limiting to tasks for speed reasons, as in "only update config files". 
+## Execution 
 
-**sudo** (`become`) only where necessary
+- Use tags only for limiting to tasks for speed reasons, as in "only update config files". 
+- **sudo** (`become`) only where necessary
+- Use `--limit`
+- Debug with verbose mode `-vvv`
 
 ---
 
-use `when:` in yout task
+# Any questions?
+
+---
+
+## Bonus
+
+List all facts for one host  : `ansible -m setup hostname`
+
+---
+
+Use `when:` in yout task
 
 `with_items` example
 
 registered variables used to store the results of a task in a playbook.
-
-
-ansible-vault
-
 ---
-# Tips and tricks
-
-List all facts for one host
-Verbose mode
-
---limit
-
