@@ -233,13 +233,12 @@ It integrates with **Docker**, **Vagrant**, and OpenStack to run roles in a virt
 
 ## Tools
 
-+++
 Search roles in **Ansible galaxy**
 Some editor have **syntax higthlight** and **linters**.
 
-Personally I use  **VScode** with
-    - language-Ansible
-    - YAML Support by Red Hat
+Personally I use  **VScode** with plugins :
+- language-Ansible
+- YAML Support by Red Hat
 
 ### ansible-lint
 checks playbooks for practices and behaviour that could potentially be improved
